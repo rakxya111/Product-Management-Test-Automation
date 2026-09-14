@@ -1,0 +1,10 @@
+{
+    "browser" : "chrome",
+    "url": "https://uat-pos.danfesolution.com/login",
+    "product_create_url": "https://uat-pos.danfesolution.com/inventory/products",
+    "username": "admin",
+    "password": "Admin@123",
+    "timeout": 15,
+    "product_list": ""
+    
+}
