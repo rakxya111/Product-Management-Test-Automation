@@ -109,22 +109,29 @@ class CreateProduct:
         )
         save.click()
 
-    def create_product(self, product_name ,product_sku, collection_name, group_name, file_path, select_attribute):
+
+    def create_product(self, product_name ,product_sku, group_name, attributes, collection_name=None,  file_path=None):
         self.enter_productName(product_name)
         self.enter_productSku(product_sku)
-        self.enter_groupName(group_name)
-        self.enter_collection(collection_name)
 
-        if file_path is not None:
+        if collection_name:
+            self.enter_collection(collection_name)
+
+        self.enter_groupName(group_name)
+
+        if file_path:
             self.upload_file(file_path)
 
-        
+        self.scrollto_attribute_section()
 
-        
+        for attribute_name, attribute_value in attributes.items():
+            if attribute_value:
+                self.select_attribute(
+                    attribute_name,
+                    attribute_value
+                )
+
+        self.click_save()
 
 
-
-
-
-
-    
+   
