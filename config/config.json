@@ -5,6 +5,5 @@
     "username": "admin",
     "password": "Admin@123",
     "timeout": 15,
-    "product_list": ""
-    
+    "product_list": "test_data/ProductData.xlsx"
 }

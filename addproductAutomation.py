@@ -15,13 +15,13 @@ group = "Jenna Flower Pearl Necklace"
 catgegory = "Pearl Necklace"
 email = "admin"
 password = "Admin@123"
-shape = 'Round'
-color = 'Lavender'
-pearl = 'Edision'
-type = 'Strand'
-strand_type = 'Single'
-length = '22-23'
-size = '10-11mm'
+# shape = 'Round'
+# color = 'Lavender'
+# pearl = 'Edision'
+# type = 'Strand'
+# strand_type = 'Single'
+# length = '22-23'
+# size = '10-11mm'
 
 
 driver = webdriver.Chrome()
@@ -113,18 +113,18 @@ file_input = wait.until(
 
 file_input.send_keys(r"D:/wallpaper/4.png")
 
-virtual_product = wait.until(
-    EC.element_to_be_clickable(
-        (By.XPATH, "//div[contains(@class,'pfp-toggle-row')][.//label[normalize-space()='Virtual Product']]//button[@role='switch']")
-    )
-)
+# virtual_product = wait.until(
+#     EC.element_to_be_clickable(
+#         (By.XPATH, "//div[contains(@class,'pfp-toggle-row')][.//label[normalize-space()='Virtual Product']]//button[@role='switch']")
+#     )
+# )
 
-if virtual_product.get_attribute("aria-checked") == "false":
-    virtual_product.click()
+# if virtual_product.get_attribute("aria-checked") == "false":
+#     virtual_product.click()
 
 
-# Scroll to the attributes section once, before selecting any attribute,
-# so the chips are actually rendered/visible before we try to click them.
+# Scroll to the attributes section once, before selecting any attribute, so the chips are actually rendered/visible before we try to click them.
+
 attributes_section = wait.until(
     EC.presence_of_element_located(
         (By.XPATH, "//div[contains(@class,'pfp-section-title')][normalize-space()='Product Attributes']")
@@ -138,11 +138,12 @@ wait.until(
     EC.presence_of_element_located((By.CLASS_NAME, "pfp-kajal-attr-row"))
 )
 
-# DEBUG: print what attribute rows actually exist right now
-rows = driver.find_elements(By.CLASS_NAME, "pfp-kajal-attr-row")
-print(f"Found {len(rows)} attribute row(s):")
-for r in rows:
-    print(" -", r.find_element(By.CLASS_NAME, "pfp-kajal-attr-name").text)
+# # DEBUG: print what attribute rows actually exist right now
+# rows = driver.find_elements(By.CLASS_NAME, "pfp-kajal-attr-row")
+# print(f"Found {len(rows)} attribute row(s):")
+# for r in rows:
+#     print(" -", r.find_element(By.CLASS_NAME, "pfp-kajal-attr-name").text)
+
 
 
 def select_attribute(attribute_name, attribute_value):
@@ -162,9 +163,8 @@ def select_attribute(attribute_name, attribute_value):
         element
     )
 
-    wait.until(
-        EC.element_to_be_clickable(locator)
-    ).click()
+    # JS click avoids "element click intercepted" from overlays/sticky elements
+    driver.execute_script("arguments[0].click();", element)
 
 select_attribute("Shape", "Round")
 select_attribute("Color", "Lavender")
@@ -173,6 +173,7 @@ select_attribute("Type", "Strand")
 select_attribute("Strand Type", "Single")
 select_attribute("Length (Inches)", "22-23")
 select_attribute("Size mm", "10-11mm")
+
 
 
 # KEEP BROWSER OPEN
