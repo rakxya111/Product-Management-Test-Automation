@@ -1,9 +1,10 @@
 {
     "browser" : "chrome",
-    "url": "https://uat-pos.danfesolution.com/login",
-    "product_create_url": "https://uat-pos.danfesolution.com/inventory/products",
+    "url": "https://uat-kajal.danfesolution.com//login",
+    "product_create_url": "https://uat-kajal.danfesolution.com/inventory/products",
+    "setting_url" : "https://uat-kajal.danfesolution.com/settings/general",
     "username": "admin",
     "password": "Admin@123",
     "timeout": 15,
-    "product_list": "test_data/ProductData.xlsx"
+    "product_list": "test_data/ProductData01.xlsx"
 }

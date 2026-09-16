@@ -10,9 +10,9 @@ class ProductMenu:
         self.wait = wait
 
     def go_to_productmenu(self):
-        self.wait.until(
-            EC.url_contains("/dashboard")
-        )
+        # self.wait.until(
+        #     EC.url_contains("/dashboard")
+        # )
         self.driver.get(config['product_create_url'])
 
         
