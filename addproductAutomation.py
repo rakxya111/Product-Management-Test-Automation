@@ -15,13 +15,7 @@ group = "Jenna Flower Pearl Necklace"
 catgegory = "Pearl Necklace"
 email = "admin"
 password = "Admin@123"
-# shape = 'Round'
-# color = 'Lavender'
-# pearl = 'Edision'
-# type = 'Strand'
-# strand_type = 'Single'
-# length = '22-23'
-# size = '10-11mm'
+
 
 
 driver = webdriver.Chrome()
