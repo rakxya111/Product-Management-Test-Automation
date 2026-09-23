@@ -42,6 +42,7 @@ def wait(driver):
     return WebDriverWait(driver, config['timeout'])
 
 # This will require a folder name as tests
+# This will require a folder name as tests
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item):
     pytest_html = item.config.pluginmanager.getplugin("html")
